@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # get "/books", to: "books#index"
   # get "/books/:id", to: "books#show"
   # можно заменить на
-  resources :books
+  resources :books do
+    resources :comments
+  end
   # О подробностях DSL, доступного в этом файле, написано в http://rusrails.ru/routing
 end

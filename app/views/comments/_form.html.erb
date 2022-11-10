@@ -1,0 +1,20 @@
+<%= form_with model: [@book, @book.comments.build] do |form| %>
+  <p>
+    <%= form.label :commenter, value: "Your name:" %><br>
+    <%= form.text_field :commenter %>
+  </p>
+
+  <p>
+    <%= form.label :body, value: "Comment" %><br>
+    <%= form.text_area :body, size: "50x5" %>
+  </p>
+
+  <p>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

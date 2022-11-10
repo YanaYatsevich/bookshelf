@@ -8,14 +8,26 @@
   </div>
 
   <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
+    <%= form.label :body, value: "Description" %><br>
+    <%= form.text_area :body, size: "100x20" %>
     <% book.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['ongoing', 'completed', 'archived'], selected: 'ongoing' %>
+  </div>
+
+  <div>
+    <%= form.label :picture, value: "Upload your file" %><br>
+    <%= form.file_field :picture %>
+  </div>
+
+  <div>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<p> <%= link_to "Cancel", root_path %> </p>

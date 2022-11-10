@@ -2,9 +2,11 @@
 
 <ul>
   <% @books.each do |book| %>
+    <% unless book.archived? %>
     <li>
       <%= link_to book.title, book %>
     </li>
+    <% end %>
   <% end %>
 </ul>
 

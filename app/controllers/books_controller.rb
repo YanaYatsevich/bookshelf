@@ -35,6 +35,13 @@ class BooksController < ApplicationController
     end
   end
 
+  def upload
+    uploaded_file = params[:picture]
+    File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
+      file.write(uploaded_file.read)
+    end
+  end
+
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
@@ -44,6 +51,6 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :status)
   end
 end

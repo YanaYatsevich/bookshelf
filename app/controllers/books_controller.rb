@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  http_basic_authenticate_with name: "test", password: "secret", except: [:index, :show]
+
   def index
     @books = Book.all
   end
@@ -35,12 +37,14 @@ class BooksController < ApplicationController
     end
   end
 
-  def upload
-    uploaded_file = params[:picture]
-    File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
-      file.write(uploaded_file.read)
-    end
-  end
+  # def upload
+  #   @book = Book.find(params[:book_id])
+  #
+  #   uploaded_file = params[:picture]
+  #   File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
+  #     file.write(uploaded_file.read)
+  #   end
+  # end
 
   def destroy
     @book = Book.find(params[:id])

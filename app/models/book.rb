@@ -9,4 +9,6 @@ class Book < ApplicationRecord
   VALID_STATUSES = ['ongoing', 'completed', 'archived']
 
   validates :status, inclusion: { in: VALID_STATUSES }
+
+  mount_uploader :picture, PictureUploader
 end

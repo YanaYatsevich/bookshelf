@@ -5,9 +5,10 @@
     <% unless book.archived? %>
     <li>
       <%= link_to book.title, book %>
+      <%= image_tag book.picture_url, width: '10%' if book.picture.present? %>
     </li>
     <% end %>
   <% end %>
 </ul>
 
-<%= link_to "New Book", new_book_path %>
+<%#= link_to "New Book", new_book_path %>

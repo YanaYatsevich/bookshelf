@@ -1,9 +1,8 @@
 <h1><%= @book.title %></h1>
-
+<p><%= image_tag(@book.picture_url, width: 200) if @book.picture.present? %></p>
 <p><%= @book.body %></p>
 
 <ul>
-  <li><%= link_to "Start page", root_path %></li>
   <li><%= link_to "Edit", edit_book_path(@book) %></li>
   <li><%= link_to "Delete book", book_path(@book), data: {
     turbo_method: :delete,
@@ -11,8 +10,8 @@
   } %></li>
 </ul>
 
-<h2>Comments</h2>
+<h4>Comments</h4>
 <%= render @book.comments %>
 
-<h2>Add a comment:</h2>
+<h5>Add a comment:</h5>
 <%= render 'comments/form' %>

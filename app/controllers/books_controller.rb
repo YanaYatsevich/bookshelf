@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  http_basic_authenticate_with name: "test", password: "secret", except: [:index, :show]
+  http_basic_authenticate_with name: "test", password: "1234", except: [:index, :show]
 
   def index
     @books = Book.all
@@ -36,15 +36,7 @@ class BooksController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-
-  # def upload
-  #   @book = Book.find(params[:book_id])
-  #
-  #   uploaded_file = params[:picture]
-  #   File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
-  #     file.write(uploaded_file.read)
-  #   end
-  # end
+ end
 
   def destroy
     @book = Book.find(params[:id])
@@ -55,6 +47,6 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :body, :status)
+    params.require(:book).permit(:title, :body, :status, :picture)
   end
-end
+

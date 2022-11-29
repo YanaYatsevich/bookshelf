@@ -1,14 +1,22 @@
-<h1><%= @book.title %></h1>
-<p><%= image_tag(@book.picture_url, width: 200) if @book.picture.present? %></p>
-<p><%= @book.body %></p>
+<div class="row">
+  <div class="col-md-3">
+    <%= image_tag(@book.picture_url, width: 200) if @book.picture.present? %></p>
+  </div>
 
-<ul>
-  <li><%= link_to "Edit", edit_book_path(@book) %></li>
-  <li><%= link_to "Delete book", book_path(@book), data: {
+  <div class="col-sm-9">
+    <p><b><%= @book.title %></b></p>
+    <p><%= @book.body %></p>
+
+    <p>
+  <%= link_to "Edit", edit_book_path(@book) %>
+  <%= link_to "Delete book", book_path(@book), data: {
     turbo_method: :delete,
     turbo_confirm: "Are you sure?"
-  } %></li>
-</ul>
+  } %>
+  <%= link_to 'Back', root_path %>
+    </p>
+  </div>
+</div>
 
 <h4>Comments</h4>
 <%= render @book.comments %>

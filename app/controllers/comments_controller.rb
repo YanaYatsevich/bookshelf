@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  http_basic_authenticate_with name: "1234", password: "1234", only: :destroy
 
+  before_action :authenticate_user!, except: :show
   def create
     @book = Book.find(params[:book_id])
     @comment = @book.comments.create(comment_params)

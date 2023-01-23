@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
-  http_basic_authenticate_with name: "test", password: "1234", except: [:index, :show]
+  # http_basic_authenticate_with name: "test", password: "1234", except: [:index, :show]
 
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @books = Book.all
   end

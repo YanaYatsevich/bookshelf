@@ -73,3 +73,5 @@ end
 
 gem 'carrierwave'
 gem 'net-ssh'
+gem 'devise'
+

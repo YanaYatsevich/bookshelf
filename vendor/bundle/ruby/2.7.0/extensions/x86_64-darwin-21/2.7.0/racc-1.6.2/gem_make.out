@@ -1,0 +1,18 @@
+current directory: /Users/yanayatsevich/bookshelf/vendor/bundle/ruby/2.7.0/gems/racc-1.6.2/ext/racc/cparse
+/Users/yanayatsevich/.rvm/rubies/ruby-2.7.0/bin/ruby -I /Users/yanayatsevich/.rvm/rubies/ruby-2.7.0/lib/ruby/2.7.0 -r ./siteconf20230103-28477-rp6vv9.rb extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/yanayatsevich/bookshelf/vendor/bundle/ruby/2.7.0/gems/racc-1.6.2/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /Users/yanayatsevich/bookshelf/vendor/bundle/ruby/2.7.0/gems/racc-1.6.2/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/yanayatsevich/bookshelf/vendor/bundle/ruby/2.7.0/gems/racc-1.6.2/ext/racc/cparse
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20230103-28477-olf9v7/racc
